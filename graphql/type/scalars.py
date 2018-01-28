@@ -8,8 +8,8 @@ from .definition import GraphQLScalarType
 #
 # n.b. JavaScript's integers are safe between -(2^53 - 1) and 2^53 - 1 because
 # they are internally represented as IEEE 754 doubles.
-MAX_INT = 2147483647
-MIN_INT = -2147483648
+MAX_INT = 4503599627370496
+MIN_INT = -4503599627370496
 
 
 def coerce_int(value):
@@ -23,7 +23,7 @@ def coerce_int(value):
     if MIN_INT <= num <= MAX_INT:
         return num
     raise Exception((
-        "Int cannot represent non 32-bit signed integer value: {}"
+        "Int cannot represent non 52-bit signed integer value: {}"
     ).format(value))
 
 
